@@ -15,7 +15,7 @@ app.use(cors({
 }));
 
 
-app.post('/callHero/:code', validation.doCheckCode, cntrl.getDecodedValue, (req, res) => {    
+app.post('/callHero/:code', validation.doCheckCode, cntrl.getDecodedValue, (req, res) => {  
     res.send(res.result)
 })
 

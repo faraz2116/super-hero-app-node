@@ -6,7 +6,11 @@ code.getDecodedValue = function(req, res, next){
     code.forEach((element, index) => {
         code[index] = config.codeMap[element]
     });
-    res.result = {hero :getDecode(code)}
+    var decodedHero = getDecode(code)
+    if(decodedHero)
+        res.result = {hero : decodedHero}
+    else
+        res.status(400).send({hero :'No Any Super Hero Found'})
     return next()
 
 }
@@ -36,7 +40,6 @@ getDecode = function(codeArray) {
     })
 
     console.log("decodedHero", decodedHero)
-
     return decodedHero
 }
 
